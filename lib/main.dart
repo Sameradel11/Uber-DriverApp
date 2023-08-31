@@ -1,4 +1,4 @@
-import 'package:drivers_app/Features/Autentication/presentation/views/signin.dart';
+import 'package:drivers_app/core/app_routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,10 +10,10 @@ class DriverApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRoutes.router,
       theme: ThemeData(brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
-      home: const SignIN(),
       title: "Drivers App",
     );
   }

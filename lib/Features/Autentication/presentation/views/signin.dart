@@ -1,7 +1,9 @@
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/textfield_column.dart';
 import 'package:drivers_app/Features/splash/presentation/views/const.dart';
+import 'package:drivers_app/core/app_routes.dart';
 import 'package:drivers_app/core/style.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SignIN extends StatelessWidget {
   const SignIN({super.key});
@@ -12,10 +14,10 @@ class SignIN extends StatelessWidget {
       body: SingleChildScrollView(
         child: SafeArea(
             child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
               KlogoPath,
-              scale: 2,
             ),
             const SizedBox(
               height: 20,
@@ -32,7 +34,8 @@ class SignIN extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12))),
                     backgroundColor:
                         MaterialStateProperty.all(Colors.blue.shade800)),
-                onPressed: () {},
+                onPressed: () =>
+                    GoRouter.of(context).push(AppRoutes.Kcardetails),
                 child: const Text(
                   "Create Account",
                   style: Style.textstyle18,

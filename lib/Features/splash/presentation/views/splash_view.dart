@@ -1,17 +1,17 @@
 import 'dart:async';
-
-import 'package:drivers_app/Features/home/presentation/views/main_view.dart';
 import 'package:drivers_app/Features/splash/presentation/views/const.dart';
+import 'package:drivers_app/core/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class MySplashScreen extends StatefulWidget {
-  const MySplashScreen({super.key});
+class MySplashView extends StatefulWidget {
+  const MySplashView({super.key});
 
   @override
-  State<MySplashScreen> createState() => _MySplashScreenState();
+  State<MySplashView> createState() => _MySplashViewState();
 }
 
-class _MySplashScreenState extends State<MySplashScreen> {
+class _MySplashViewState extends State<MySplashView> {
   @override
   void initState() {
     startTimer();
@@ -35,8 +35,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
 
   startTimer() {
     Timer(const Duration(seconds: 2), () async {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const MainView()));
+      GoRouter.of(context).push(AppRoutes.KSignIN);
     });
   }
 }
