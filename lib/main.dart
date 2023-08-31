@@ -1,4 +1,4 @@
-import 'package:drivers_app/Features/splash/presentation/views/splash_view.dart';
+import 'package:drivers_app/Features/Autentication/presentation/views/signin.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +13,7 @@ class DriverApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(brightness: Brightness.dark),
       debugShowCheckedModeBanner: false,
-      home: const MySplashScreen(),
+      home: const SignIN(),
       title: "Drivers App",
     );
   }

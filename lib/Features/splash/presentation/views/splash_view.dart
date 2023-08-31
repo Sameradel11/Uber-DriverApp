@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:drivers_app/Features/home/presentation/views/home_view.dart';
 import 'package:drivers_app/Features/home/presentation/views/main_view.dart';
 import 'package:drivers_app/Features/splash/presentation/views/const.dart';
 import 'package:flutter/material.dart';
