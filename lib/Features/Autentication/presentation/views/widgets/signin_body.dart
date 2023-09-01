@@ -6,62 +6,86 @@ import 'package:drivers_app/core/style.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class SignInBody extends StatelessWidget {
+class SignInBody extends StatefulWidget {
   const SignInBody({super.key});
+
+  @override
+  State<SignInBody> createState() => _SignInBodyState();
+}
+
+class _SignInBodyState extends State<SignInBody> {
+  final TextEditingController emailcontroller = TextEditingController();
+  final TextEditingController passwordcontroller = TextEditingController();
+  final formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                KlogoPath,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text("Log in ",
-                  style:
-                      Style.textstyle20.copyWith(fontWeight: FontWeight.w400)),
-              const SizedBox(
-                height: 15,
-              ),
-              const CustomTextField(
-                label: Text("Email"),
-                type: TextInputType.emailAddress,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              const CustomTextField(
-                label: Text("Password"),
-                type: TextInputType.visiblePassword,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              const CustomElevatedButton(text: "Log in "),
-              const SizedBox(
-                height: 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text("Don't have an account, "),
-                  GestureDetector(
-                    child: const Text(
-                      "Sign up",
-                      style: Style.textstyle16,
-                    ),
-                    onTap: () => GoRouter.of(context).push(AppRoutes.KSignUp),
-                  )
-                ],
-              ),
-            ],
+      child: Form(
+        key: formkey,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height * .13),
+                Image.asset(
+                  KlogoPath,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text("Log in ",
+                    style: Style.textstyle20
+                        .copyWith(fontWeight: FontWeight.w400)),
+                const SizedBox(
+                  height: 15,
+                ),
+                const CustomTextField(
+                  label: Text("Email"),
+                  type: TextInputType.emailAddress,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                const CustomTextField(
+                  hidetext: true,
+                  label: Text("Password"),
+                  type: TextInputType.visiblePassword,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                CustomElevatedButton(
+                  text: "Log in ",
+                  ontap: () {
+                    if (formkey.currentState!.validate()) {
+                      print("Logged in successfully");
+                    }
+                  },
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("Don't have an account, "),
+                    GestureDetector(
+                      child: const Text(
+                        "Sign up",
+                        style: Style.textstyle16,
+                      ),
+                      onTap: () {
+                        GoRouter.of(context).push(AppRoutes.KSignUp);
+                      },
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

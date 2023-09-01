@@ -1,15 +1,11 @@
-import 'package:drivers_app/core/app_routes.dart';
 import 'package:drivers_app/core/style.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class CustomElevatedButton extends StatelessWidget {
-  const CustomElevatedButton({
-    super.key,
-    required this.text,
-  });
+  const CustomElevatedButton(
+      {super.key, required this.text, required this.ontap});
   final String text;
-
+  final ontap;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -17,7 +13,7 @@ class CustomElevatedButton extends StatelessWidget {
             shape: MaterialStateProperty.all(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12))),
             backgroundColor: MaterialStateProperty.all(Colors.blue.shade800)),
-        onPressed: () => GoRouter.of(context).push(AppRoutes.Kcardetails),
+        onPressed: ontap,
         child: Text(
           text,
           style: Style.textstyle18,

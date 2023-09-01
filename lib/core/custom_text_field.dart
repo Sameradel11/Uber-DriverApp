@@ -12,7 +12,7 @@ class CustomTextField extends StatelessWidget {
       this.type = TextInputType.text,
       this.readonly = false,
       this.hidetext = false,
-      this.action=TextInputAction.next});
+      this.action = TextInputAction.next});
   final hidetext;
   final onchange;
   final onsaved;
@@ -47,7 +47,7 @@ class CustomTextField extends StatelessWidget {
               borderSide: const BorderSide(color: Colors.white))),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Please enter some text';
+          return '${label.data} is required';
         }
         return null;
       },
