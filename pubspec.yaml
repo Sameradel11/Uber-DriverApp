@@ -30,6 +30,7 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.2
   firebase_core: ^2.15.1
+  flutter_bloc: ^8.1.3
   flutter:
     sdk: flutter
   go_router: ^10.1.2

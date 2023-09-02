@@ -5,7 +5,6 @@ import 'package:drivers_app/core/app_routes.dart';
 import 'package:drivers_app/core/custom_text_field.dart';
 import 'package:drivers_app/core/functions.dart';
 import 'package:drivers_app/core/style.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

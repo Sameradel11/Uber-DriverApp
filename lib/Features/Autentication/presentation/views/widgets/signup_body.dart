@@ -1,14 +1,16 @@
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/custom_elevated_button.dart';
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/go_signIn.dart';
+import 'package:drivers_app/Features/Autentication/presentation/views/widgets/progress_dialog.dart';
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/textfield_column.dart';
 import 'package:drivers_app/Features/splash/presentation/views/const.dart';
 import 'package:drivers_app/core/app_routes.dart';
+import 'package:drivers_app/core/functions.dart';
 import 'package:drivers_app/core/style.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class SignUpBody extends StatefulWidget {
-  const SignUpBody({
+  const  SignUpBody({
     super.key,
   });
 
@@ -43,7 +45,12 @@ class _SignUpBodyState extends State<SignUpBody> {
               const SizedBox(
                 height: 10,
               ),
-              const TextFieldsColumn(),
+              TextFieldsColumn(
+                namecontroller: namecontroller,
+                emailcontroller: emailcontroller,
+                phonecontroller: phonecontroller,
+                passwordcontroller: passwordcontroller,
+              ),
               CustomElevatedButton(
                   text: 'Next',
                   ontap: () {
@@ -61,5 +68,23 @@ class _SignUpBodyState extends State<SignUpBody> {
         ),
       ),
     );
+  }
+
+  validateForm() {
+    if (!(emailcontroller.text.contains('@'))) {
+      print(emailcontroller.text);
+      showsnackbar("Email must contain @", context);
+    } else if (emailcontroller.text.length < 3) {
+      showsnackbar("Email is Wrong", context);
+    } else if (passwordcontroller.text.length < 5) {
+      showsnackbar("password should be at least 5 characters", context);
+    } else if (phonecontroller.text.length < 11) {
+      showsnackbar("Phone must be 11 numbers", context);
+    } else {
+      showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (context) => const ProgressDialog());
+    }
   }
 }
