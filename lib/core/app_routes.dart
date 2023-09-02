@@ -1,7 +1,7 @@
 // ignore_for_file: constant_identifier_names
-import 'package:drivers_app/Features/Autentication/presentation/signin.dart';
+import 'package:drivers_app/Features/Autentication/presentation/views/signin.dart';
 import 'package:drivers_app/Features/Autentication/presentation/views/car_details.dart';
-import 'package:drivers_app/Features/Autentication/presentation/signup.dart';
+import 'package:drivers_app/Features/Autentication/presentation/views/signup.dart';
 import 'package:drivers_app/Features/earning/presentation/views/earning_view.dart';
 import 'package:drivers_app/Features/home/presentation/views/home_view.dart';
 import 'package:drivers_app/Features/profile/presentation/views/profile_view.dart';

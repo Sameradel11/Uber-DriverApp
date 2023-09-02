@@ -33,7 +33,7 @@ dependencies:
   flutter:
     sdk: flutter
   go_router: ^10.1.2
-
+  firebase_auth: ^4.9.0
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:

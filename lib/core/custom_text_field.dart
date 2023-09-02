@@ -39,6 +39,9 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
           label: label,
           prefix: prefix,
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(9),
+              borderSide: BorderSide(color: Colors.red.shade800)),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(9),
               borderSide: BorderSide(color: Colors.blue.shade800)),

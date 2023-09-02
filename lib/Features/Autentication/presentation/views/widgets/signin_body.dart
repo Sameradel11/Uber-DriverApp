@@ -1,8 +1,11 @@
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/custom_elevated_button.dart';
+import 'package:drivers_app/Features/Autentication/presentation/views/widgets/progress_dialog.dart';
 import 'package:drivers_app/Features/splash/presentation/views/const.dart';
 import 'package:drivers_app/core/app_routes.dart';
 import 'package:drivers_app/core/custom_text_field.dart';
+import 'package:drivers_app/core/functions.dart';
 import 'package:drivers_app/core/style.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -18,7 +21,7 @@ class _SignInBodyState extends State<SignInBody> {
   final TextEditingController passwordcontroller = TextEditingController();
   final formkey = GlobalKey<FormState>();
 
-  @override
+    @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Form(
@@ -43,16 +46,18 @@ class _SignInBodyState extends State<SignInBody> {
                 const SizedBox(
                   height: 15,
                 ),
-                const CustomTextField(
-                  label: Text("Email"),
+                CustomTextField(
+                  controller: emailcontroller,
+                  label: const Text("Email"),
                   type: TextInputType.emailAddress,
                 ),
                 const SizedBox(
                   height: 15,
                 ),
-                const CustomTextField(
+                CustomTextField(
+                  controller: passwordcontroller,
                   hidetext: true,
-                  label: Text("Password"),
+                  label: const Text("Password"),
                   type: TextInputType.visiblePassword,
                 ),
                 const SizedBox(
@@ -61,9 +66,7 @@ class _SignInBodyState extends State<SignInBody> {
                 CustomElevatedButton(
                   text: "Log in ",
                   ontap: () {
-                    if (formkey.currentState!.validate()) {
-                      print("Logged in successfully");
-                    }
+                    validateform();
                   },
                 ),
                 const SizedBox(
@@ -90,5 +93,23 @@ class _SignInBodyState extends State<SignInBody> {
         ),
       ),
     );
+  }
+
+  validateform() {
+    if (formkey.currentState!.validate()) {
+      if (!(emailcontroller.text.contains('@'))) {
+        print(emailcontroller.text);
+        showsnackbar("Email must contain @", context);
+      } else if (emailcontroller.text.length < 3) {
+        showsnackbar("Email is Wrong", context);
+      } else if (passwordcontroller.text.length < 5) {
+        showsnackbar("password should be at least 5 characters", context);
+      } else {
+        showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder: (context) => const ProgressDialog());
+      }
+    }
   }
 }

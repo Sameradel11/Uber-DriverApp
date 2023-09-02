@@ -35,7 +35,7 @@ class _MySplashViewState extends State<MySplashView> {
 
   startTimer() {
     Timer(const Duration(seconds: 2), () async {
-      GoRouter.of(context).push(AppRoutes.KSignIn);
+      GoRouter.of(context).push(AppRoutes.KSignUp);
     });
   }
 }

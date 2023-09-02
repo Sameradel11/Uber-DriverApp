@@ -14,11 +14,8 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Form(
-        key: formkey,
-        child: SignUpBody(formkey: formkey),
-      ),
+    return const Scaffold(
+      body: SignUpBody(),
     );
   }
 }
