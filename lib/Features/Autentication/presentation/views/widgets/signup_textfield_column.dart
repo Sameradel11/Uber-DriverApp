@@ -55,7 +55,7 @@ class TextFieldsColumn extends StatelessWidget {
           ),
           CustomTextField(
             controller: passwordcontroller,
-            action: TextInputAction.send,
+            action: TextInputAction.go,
             hidetext: true,
             type: TextInputType.visiblePassword,
             label: const Text(

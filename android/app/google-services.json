@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:587050558198:android:c4cdfaa3c33fd6903b02d7",
+        "mobilesdk_app_id": "1:587050558198:android:780ced88bfafceea3b02d7",
         "android_client_info": {
           "package_name": "com.example.drivers_app"
         }
@@ -43,9 +43,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:587050558198:android:c2b25aa926b349d33b02d7",
+        "mobilesdk_app_id": "1:587050558198:android:98821a12a485ad823b02d7",
         "android_client_info": {
-          "package_name": "com.samer.driversapp"
+          "package_name": "com.samer.drivers_app"
         }
       },
       "oauth_client": [

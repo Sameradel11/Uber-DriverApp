@@ -20,7 +20,7 @@ class _SignInBodyState extends State<SignInBody> {
   final TextEditingController passwordcontroller = TextEditingController();
   final formkey = GlobalKey<FormState>();
 
-    @override
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Form(
@@ -63,7 +63,7 @@ class _SignInBodyState extends State<SignInBody> {
                   height: 15,
                 ),
                 CustomElevatedButton(
-                  text: "Log in ",
+                  child: const Text("Log in "),
                   ontap: () {
                     validateform();
                   },

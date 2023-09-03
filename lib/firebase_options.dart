@@ -18,8 +18,7 @@ class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
       return web;
-    } 
-    
+    }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
@@ -46,17 +45,17 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyAgU3_mgQNpgR4d66XNb7Tegkdz2ikf0mc',
-    appId: '1:587050558198:web:65dbe1204d05b59c3b02d7',
+    appId: '1:587050558198:web:8fc3b4e9597ffe8b3b02d7',
     messagingSenderId: '587050558198',
     projectId: 'uber-clone-c809d',
     authDomain: 'uber-clone-c809d.firebaseapp.com',
     storageBucket: 'uber-clone-c809d.appspot.com',
-    measurementId: 'G-B3V7PM2RN4',
+    measurementId: 'G-66KYEFNKVM',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyB5NWG9fpjHO8ukBaXei7sCyEk1beGIPKE',
-    appId: '1:587050558198:android:c4cdfaa3c33fd6903b02d7',
+    appId: '1:587050558198:android:780ced88bfafceea3b02d7',
     messagingSenderId: '587050558198',
     projectId: 'uber-clone-c809d',
     storageBucket: 'uber-clone-c809d.appspot.com',
@@ -64,7 +63,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBrzrSmwi4-jkCY2GZNdRCXNygPWcHrhRQ',
-    appId: '1:587050558198:ios:831ac0024e5dac353b02d7',
+    appId: '1:587050558198:ios:77bfcc0552847c093b02d7',
     messagingSenderId: '587050558198',
     projectId: 'uber-clone-c809d',
     storageBucket: 'uber-clone-c809d.appspot.com',
@@ -74,7 +73,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyBrzrSmwi4-jkCY2GZNdRCXNygPWcHrhRQ',
-    appId: '1:587050558198:ios:643a676edc87f74f3b02d7',
+    appId: '1:587050558198:ios:f0c19ce3d887abcc3b02d7',
     messagingSenderId: '587050558198',
     projectId: 'uber-clone-c809d',
     storageBucket: 'uber-clone-c809d.appspot.com',

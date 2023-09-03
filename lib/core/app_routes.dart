@@ -4,6 +4,7 @@ import 'package:drivers_app/Features/Autentication/presentation/views/car_detail
 import 'package:drivers_app/Features/Autentication/presentation/views/signup.dart';
 import 'package:drivers_app/Features/earning/presentation/views/earning_view.dart';
 import 'package:drivers_app/Features/home/presentation/views/home_view.dart';
+import 'package:drivers_app/Features/home/presentation/views/main_view.dart';
 import 'package:drivers_app/Features/profile/presentation/views/profile_view.dart';
 import 'package:drivers_app/Features/rating/presentation/views/rating_view.dart';
 import 'package:drivers_app/Features/splash/presentation/views/splash_view.dart';
@@ -17,9 +18,14 @@ abstract class AppRoutes {
   static const Kprofile = '/profile';
   static const Krating = '/rating';
   static const Kcardetails = '/cardetails';
+  static const Kmainview = '/mainview';
 
   static final router = GoRouter(routes: [
     GoRoute(path: '/', builder: (context, state) => const MySplashView()),
+    GoRoute(
+      path: Kmainview,
+      builder: (context, state) => const MainView(),
+    ),
     GoRoute(path: KSignUp, builder: (context, state) => const SignUp()),
     GoRoute(path: KHomeView, builder: (context, state) => const HomeView()),
     GoRoute(path: Kearning, builder: (context, state) => const EarningView()),
