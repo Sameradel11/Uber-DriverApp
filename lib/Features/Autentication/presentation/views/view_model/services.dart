@@ -9,8 +9,8 @@ class AuthUsingFirebase {
       required String name,
       required String phone}) async {
     final FirebaseAuth fAuth = FirebaseAuth.instance;
-    final firebaseuser = (await fAuth.createUserWithEmailAndPassword(
-        email: email, password: password));
+    final firebaseuser = await fAuth.createUserWithEmailAndPassword(
+        email: email, password: password);
     Map drivermap = {
       'id': firebaseuser.user!.uid,
       'name': name.trim(),
