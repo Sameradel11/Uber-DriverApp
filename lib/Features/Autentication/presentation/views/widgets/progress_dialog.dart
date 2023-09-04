@@ -2,9 +2,9 @@ import 'package:drivers_app/core/style.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
-class ProgressDialog extends StatelessWidget {
-  const ProgressDialog({super.key});
-
+class CustomProgressDialog extends StatelessWidget {
+  const CustomProgressDialog({super.key, required this.text});
+  final String text;
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -21,7 +21,7 @@ class ProgressDialog extends StatelessWidget {
             flex: 1,
           ),
           Text(
-            "Creating account",
+            text,
             style: Style.textstyle16.copyWith(color: Colors.white),
           ),
           const Spacer(

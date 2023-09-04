@@ -19,19 +19,21 @@ abstract class AppRoutes {
   static const Krating = '/rating';
   static const Kcardetails = '/cardetails';
   static const Kmainview = '/mainview';
-
+  static const Ksplasview = '/';
   static final router = GoRouter(routes: [
-    GoRoute(path: '/', builder: (context, state) => const MySplashView()),
     GoRoute(
-      path: Kmainview,
-      builder: (context, state) => const MainView(),
-    ),
+        path: Ksplasview, builder: (context, state) => const MySplashView()),
+    GoRoute(path: Kmainview, builder: (context, state) => const MainView()),
     GoRoute(path: KSignUp, builder: (context, state) => const SignUp()),
     GoRoute(path: KHomeView, builder: (context, state) => const HomeView()),
     GoRoute(path: Kearning, builder: (context, state) => const EarningView()),
     GoRoute(path: Kprofile, builder: (context, state) => const ProfileView()),
     GoRoute(path: Krating, builder: (context, state) => const RatingView()),
     GoRoute(path: Kcardetails, builder: (context, state) => const CarDetails()),
-    GoRoute(path: KSignIn, builder: (context, state) => const SignIn())
+    GoRoute(
+      path: KSignIn,
+      builder: (context, state) => const SignIn(),
+    )
   ]);
 }
+

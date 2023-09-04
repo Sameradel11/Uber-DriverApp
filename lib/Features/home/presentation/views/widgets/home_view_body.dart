@@ -7,7 +7,7 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Text(
-        "Driviers App",
+        "Home view",
         style: TextStyle(fontSize: 21),
       ),
     );

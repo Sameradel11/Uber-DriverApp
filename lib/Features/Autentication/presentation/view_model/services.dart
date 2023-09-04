@@ -1,4 +1,4 @@
-import 'package:drivers_app/Features/splash/presentation/views/const.dart';
+import 'package:drivers_app/const.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 

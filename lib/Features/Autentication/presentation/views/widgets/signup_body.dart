@@ -1,9 +1,9 @@
-import 'package:drivers_app/Features/Autentication/presentation/views/view_model/cubits/cubit/sign_up_cubit.dart';
+import 'package:drivers_app/Features/Autentication/presentation/view_model/cubits/authcubit/sign_up_cubit.dart';
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/custom_elevated_button.dart';
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/go_signIn.dart';
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/progress_dialog.dart';
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/signup_textfield_column.dart';
-import 'package:drivers_app/Features/splash/presentation/views/const.dart';
+import 'package:drivers_app/const.dart';
 import 'package:drivers_app/core/app_routes.dart';
 import 'package:drivers_app/core/functions.dart';
 import 'package:drivers_app/core/style.dart';
@@ -30,14 +30,19 @@ class _SignUpBodyState extends State<SignUpBody> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SignUpCubit(),
-      child: BlocConsumer<SignUpCubit, SignUpState>(
-        listener: (BuildContext context, SignUpState state) {
-          if (state is SignUpSuccess) {
+      create: (context) => AuthCubit(),
+      child: BlocConsumer<AuthCubit, AuthState>(
+        listener: (BuildContext context, AuthState state) {
+          if (state is AuthLoading) {
+            showDialog(
+              builder: (context) =>
+                  const CustomProgressDialog(text: 'Creating Account'),
+              context: context,
+            );
+          } else if (state is AuthSuccess) {
             showsnackbar("Account created successfully", context);
-            Future.delayed(const Duration(seconds: 2));
             GoRouter.of(context).push(AppRoutes.Kcardetails);
-          } else if (state is SignUpFailed) {
+          } else if (state is AuthFailed) {
             showsnackbar(state.errmessage, context);
           }
         },
@@ -67,7 +72,7 @@ class _SignUpBodyState extends State<SignUpBody> {
                       passwordcontroller: passwordcontroller,
                     ),
                     CustomElevatedButton(
-                        child: state is SignUpLoading
+                        child: state is AuthLoading
                             ? const CircularProgressIndicator(
                                 color: Colors.white,
                               )
@@ -77,7 +82,7 @@ class _SignUpBodyState extends State<SignUpBody> {
                               ),
                         ontap: () {
                           if (formkey.currentState!.validate()) {
-                            BlocProvider.of<SignUpCubit>(context).signUP(
+                            BlocProvider.of<AuthCubit>(context).signUP(
                                 email: emailcontroller.text.trim(),
                                 password: passwordcontroller.text.trim(),
                                 name: namecontroller.text.trim(),
@@ -110,11 +115,6 @@ class _SignUpBodyState extends State<SignUpBody> {
       showsnackbar("password should be at least 5 characters", context);
     } else if (phonecontroller.text.length < 11) {
       showsnackbar("Phone must be 11 numbers", context);
-    } else {
-      showDialog(
-          barrierDismissible: false,
-          context: context,
-          builder: (context) => const ProgressDialog());
     }
   }
 }
