@@ -29,10 +29,12 @@ class _SignInBodyState extends State<SignInBody> {
       listener: (context, state) {
         if (state is AuthSuccess) {
           Navigator.pop(context);
+          print("Success");
           Future.delayed(const Duration(seconds: 2));
           GoRouter.of(context).push(AppRoutes.Kmainview);
         } else if (state is AuthFailed) {
           Navigator.pop(context);
+          print('Failed');
           showsnackbar(state.errmessage, context);
         } else if (state is AuthLoading) {
           showDialog(

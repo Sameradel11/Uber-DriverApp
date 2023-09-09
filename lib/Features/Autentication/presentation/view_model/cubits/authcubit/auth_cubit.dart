@@ -63,9 +63,21 @@ class AuthCubit extends Cubit<AuthState> {
   signin({required String email, required String password}) async {
     try {
       emit(AuthLoading());
-      await firebaseAuth.signInWithEmailAndPassword(
-          email: email, password: password);
-      emit(AuthSuccess());
+      UserCredential firebaseuser = await firebaseAuth
+          .signInWithEmailAndPassword(email: email, password: password);
+      
+      DatabaseReference driversref =
+          FirebaseDatabase.instance.ref().child("drivers");
+      driversref.child(firebaseuser.user!.uid).once().then((value) {
+        final snap = value.snapshot;
+        if (snap.value != null) {
+          currentfirebaseuser = firebaseuser.user;
+          emit(AuthSuccess());
+        } else {
+          emit(AuthFailed(
+              errmessage: 'This email is registered with users app'));
+        }
+      });
     } catch (e) {
       if (e is FirebaseException || e is FirebaseAuthException) {
         emit(AuthFailed(errmessage: e.toString()));

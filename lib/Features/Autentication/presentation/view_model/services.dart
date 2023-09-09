@@ -22,4 +22,6 @@ class AuthUsingFirebase {
     driversreference.child(firebaseuser.user!.uid).set(drivermap);
     currentfirebaseuser = firebaseuser.user!;
   }
+
+
 }
