@@ -25,25 +25,24 @@ class _MainViewState extends State<MainView> {
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: BottomNavigationBar(
-            unselectedItemColor: Colors.white,
-            enableFeedback: true,
-            currentIndex: currentindex,
-            selectedItemColor: Colors.lightBlue,
-            type: BottomNavigationBarType.shifting,
-            onTap: (index) {
-              currentindex = index;
-              setState(() {});
-            },
-            items: [
-              customnavbaritem("Home", Icons.home),
-              customnavbaritem("Money", Icons.credit_card),
-              customnavbaritem("Rating", Icons.star),
-              customnavbaritem("Account", Icons.person),
-            ]),
+        unselectedItemColor: Colors.white,
+        enableFeedback: true,
+        currentIndex: currentindex,
+        selectedItemColor: Colors.lightBlue,
+        type: BottomNavigationBarType.shifting,
+        onTap: (index) {
+          currentindex = index;
+          setState(() {});
+        },
+        items: [
+          customnavbaritem("Home", Icons.home),
+          customnavbaritem("Money", Icons.credit_card),
+          customnavbaritem("Rating", Icons.star),
+          customnavbaritem("Account", Icons.person),
+        ]),
         body: views[currentindex]);
   }
-
-  customnavbaritem(String label, IconData icon) {
+    customnavbaritem(String label, IconData icon) {
     return BottomNavigationBarItem(
       label: label,
       icon: Icon(icon),

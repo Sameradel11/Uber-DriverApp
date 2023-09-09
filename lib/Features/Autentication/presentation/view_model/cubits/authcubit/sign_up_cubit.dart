@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:drivers_app/Features/Autentication/presentation/view_model/services.dart';
-import 'package:drivers_app/const.dart';
+import 'package:drivers_app/core/const.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 

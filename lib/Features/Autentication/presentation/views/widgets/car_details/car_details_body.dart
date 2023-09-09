@@ -1,7 +1,7 @@
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/car_details/car_details_textfields.dart';
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/custom_elevated_button.dart';
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/progress_dialog.dart';
-import 'package:drivers_app/const.dart';
+import 'package:drivers_app/core/const.dart';
 import 'package:drivers_app/core/app_routes.dart';
 import 'package:drivers_app/core/style.dart';
 import 'package:flutter/material.dart';

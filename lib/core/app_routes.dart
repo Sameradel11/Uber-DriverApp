@@ -4,7 +4,7 @@ import 'package:drivers_app/Features/Autentication/presentation/views/car_detail
 import 'package:drivers_app/Features/Autentication/presentation/views/signup.dart';
 import 'package:drivers_app/Features/earning/presentation/views/earning_view.dart';
 import 'package:drivers_app/Features/home/presentation/views/home_view.dart';
-import 'package:drivers_app/Features/home/presentation/views/main_view.dart';
+import 'package:drivers_app/Features/main/presentation/views/main_view.dart';
 import 'package:drivers_app/Features/profile/presentation/views/profile_view.dart';
 import 'package:drivers_app/Features/rating/presentation/views/rating_view.dart';
 import 'package:drivers_app/Features/splash/presentation/views/splash_view.dart';

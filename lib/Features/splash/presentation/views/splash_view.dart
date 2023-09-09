@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:drivers_app/const.dart';
+import 'package:drivers_app/core/const.dart';
 import 'package:drivers_app/core/app_routes.dart';
-import 'package:drivers_app/firebase_options.dart';
+import 'package:drivers_app/core/firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

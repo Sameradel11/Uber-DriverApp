@@ -3,7 +3,7 @@ import 'package:drivers_app/Features/Autentication/presentation/views/widgets/cu
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/go_signIn.dart';
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/progress_dialog.dart';
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/signup_textfield_column.dart';
-import 'package:drivers_app/const.dart';
+import 'package:drivers_app/core/const.dart';
 import 'package:drivers_app/core/app_routes.dart';
 import 'package:drivers_app/core/functions.dart';
 import 'package:drivers_app/core/style.dart';
