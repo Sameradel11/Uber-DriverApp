@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../view_model/cubits/authcubit/sign_up_cubit.dart';
+import '../../../view_model/cubits/authcubit/auth_cubit.dart';
 
 class CarDetailsBody extends StatefulWidget {
   const CarDetailsBody({super.key});

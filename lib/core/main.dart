@@ -1,4 +1,4 @@
-import 'package:drivers_app/Features/Autentication/presentation/view_model/cubits/authcubit/sign_up_cubit.dart';
+import 'package:drivers_app/Features/Autentication/presentation/view_model/cubits/authcubit/auth_cubit.dart';
 import 'package:drivers_app/core/app_routes.dart';
 import 'package:drivers_app/core/bloc_observer.dart';
 import 'package:flutter/material.dart';

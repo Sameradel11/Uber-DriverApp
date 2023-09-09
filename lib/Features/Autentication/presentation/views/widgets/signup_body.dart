@@ -1,4 +1,4 @@
-import 'package:drivers_app/Features/Autentication/presentation/view_model/cubits/authcubit/sign_up_cubit.dart';
+import 'package:drivers_app/Features/Autentication/presentation/view_model/cubits/authcubit/auth_cubit.dart';
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/custom_elevated_button.dart';
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/go_signIn.dart';
 import 'package:drivers_app/Features/Autentication/presentation/views/widgets/progress_dialog.dart';
