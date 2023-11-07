@@ -1,13 +1,14 @@
 {
   "project_info": {
     "project_number": "587050558198",
+    "firebase_url": "https://uber-clone-c809d-default-rtdb.firebaseio.com",
     "project_id": "uber-clone-c809d",
     "storage_bucket": "uber-clone-c809d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:587050558198:android:780ced88bfafceea3b02d7",
+        "mobilesdk_app_id": "1:587050558198:android:013ed19162b56e803b02d7",
         "android_client_info": {
           "package_name": "com.example.drivers_app"
         }
@@ -43,9 +44,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:587050558198:android:98821a12a485ad823b02d7",
+        "mobilesdk_app_id": "1:587050558198:android:9a2763fda60570893b02d7",
         "android_client_info": {
-          "package_name": "com.samer.drivers_app"
+          "package_name": "com.samer.userapp"
         }
       },
       "oauth_client": [
