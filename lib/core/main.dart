@@ -1,5 +1,6 @@
 import 'package:drivers_app/Features/Autentication/presentation/view_model/cubits/authcubit/auth_cubit.dart';
 import 'package:drivers_app/Features/home/presentation/view_model/cubit/location_cubit.dart';
+import 'package:drivers_app/Features/profile/presentation/view_model/cubit/fetchuserdata_cubit.dart';
 import 'package:drivers_app/core/app_routes.dart';
 import 'package:drivers_app/core/bloc_observer.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,7 @@ class DriverApp extends StatelessWidget {
         BlocProvider(
           create: (context) => LocationCubit(),
         ),
+        BlocProvider(create: (context)=>FetchuserdataCubit())
       ],
       child: MaterialApp.router(
         routerConfig: AppRoutes.router,

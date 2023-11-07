@@ -13,15 +13,21 @@ class FetchuserdataCubit extends Cubit<FetchuserdataState> {
     try {
       DatabaseReference usersref = FirebaseDatabase.instance
           .ref()
-          .child("users")
+          .child("drivers")
           .child(firebaseAuth.currentUser!.uid);
       usersref.once().then(
         (snap) {
           UserModel currentuser = UserModel.snapshot(snap.snapshot);
+          print("*" * 1000);
+          print(currentuser.name);
+          print(currentuser.email);
+          print(currentuser.phone);
+
           emit(FetchdataSuccess(user: currentuser));
         },
       );
     } catch (e) {
+      print("ERROR" * 12340234);
       if (e is FirebaseException || e is FirebaseDatabase) {
         emit(FetchdataFailed(errmeassge: e.toString()));
       } else {
