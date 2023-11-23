@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:drivers_app/Features/home/presentation/view_model/assisted_methods.dart';
 import 'package:drivers_app/Features/home/presentation/view_model/cubit/location_cubit.dart';
 import 'package:drivers_app/core/const.dart';
 import 'package:drivers_app/core/functions.dart';
@@ -36,6 +37,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
       },
       builder: (context, state) {
         LocationCubit cubit = LocationCubit.get(context);
+        traceDriverLocation();
         return Stack(children: [
           GoogleMap(
             initialCameraPosition: kGooglePlex,
@@ -77,6 +79,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                             ),
                             GestureDetector(
                               onTap: () {
+                                cubit.driverGoOffline();
                                 isonline = !isonline;
                                 Navigator.pop(context);
                                 setState(() {});
@@ -123,6 +126,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                           ElevatedButton(
                             onPressed: () {
                               isonline = !isonline;
+                              cubit.driverGoOnline();
                               setState(() {});
                             },
                             style: ElevatedButton.styleFrom(
