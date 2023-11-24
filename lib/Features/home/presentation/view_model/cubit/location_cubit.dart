@@ -16,9 +16,10 @@ class LocationCubit extends Cubit<LocationState> {
     return BlocProvider.of<LocationCubit>(context);
   }
 
-  getCurrentLocation(GoogleMapController controller) async {
+  Future getCurrentLocation(GoogleMapController controller) async {
     currentlatlng = await getcurrentLatlng();
     animatcamera(currentlatlng, controller);
+
   }
 
   driverGoOnline() {

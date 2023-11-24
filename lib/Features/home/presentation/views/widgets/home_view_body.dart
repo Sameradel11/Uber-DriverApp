@@ -160,7 +160,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         showsnackbar("The Program Won't Start without permission", context);
       }
     } else {
-      cubit.getCurrentLocation(mapcontroller!);
+      await cubit.getCurrentLocation(mapcontroller!);
         traceDriverLocation(context);
 
     }

@@ -7,7 +7,6 @@ import 'package:flutter_geofire/flutter_geofire.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-
 void setfirebaseLocation(LatLng latLng) {
   Geofire.initialize("ActiveDrivers");
   Geofire.setLocation(
@@ -30,14 +29,21 @@ animatcamera(LatLng latLng, GoogleMapController controller) {
 
 traceDriverLocation(BuildContext context) {
   Geolocator.getPositionStream().listen((Position position) async {
-    DatabaseReference ref = FirebaseDatabase.instance
-        .ref("drivers/${firebaseAuth.currentUser!.uid}/status");
+    print("Updated");
+
+    DatabaseReference ref = FirebaseDatabase.instance.ref(driverstatuspath);
+
     DatabaseEvent event = await ref.once();
     String status = event.snapshot.value.toString();
     if (status != "offline") {
-      LatLng newlatlng=LatLng(position.latitude,position.longitude);
+      LatLng newlatlng = LatLng(position.latitude, position.longitude);
       setfirebaseLocation(LatLng(position.latitude, position.longitude));
       BlocProvider.of<LocationCubit>(context).updateLatlng(newlatlng);
+      ref.onDisconnect().set("offline");
+
+      DatabaseReference activeref =
+          FirebaseDatabase.instance.ref(activedriverpath);
+      activeref.onDisconnect().remove();
     }
   });
 }
