@@ -18,3 +18,5 @@ final class CurrentLocationSuccess extends LocationState {
 }
 
 final class CameraAnimated extends LocationState {}
+
+final class LatlngUpdated extends LocationState {}

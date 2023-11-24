@@ -27,17 +27,13 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   Widget build(BuildContext context) {
     return BlocConsumer<LocationCubit, LocationState>(
       listener: (context, state) {
-        if (state is CurrentLocationSuccess) {
+        if (state is LatlngUpdated) {
           LocationCubit cubit = LocationCubit.get(context);
-          cubit.animatcamera(state.latLng, mapcontroller!);
-        }
-        if (state is CameraAnimated) {
-          showsnackbar("Camera Animated", context);
+          animatcamera(cubit.currentlatlng, mapcontroller!);
         }
       },
       builder: (context, state) {
         LocationCubit cubit = LocationCubit.get(context);
-        traceDriverLocation();
         return Stack(children: [
           GoogleMap(
             initialCameraPosition: kGooglePlex,
@@ -111,7 +107,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                         ),
                       ],
                     ),
-                  ))
+                  )) 
               : Container(
                   color: backgroundcolor,
                   height: MediaQuery.sizeOf(context).height,
@@ -157,12 +153,16 @@ class _HomeViewBodyState extends State<HomeViewBody> {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.always ||
           permission == LocationPermission.whileInUse) {
-        cubit.getcurrentLocation();
+        cubit.getCurrentLocation(mapcontroller!);
+        traceDriverLocation(context);
+
       } else {
         showsnackbar("The Program Won't Start without permission", context);
       }
     } else {
-      cubit.getcurrentLocation();
+      cubit.getCurrentLocation(mapcontroller!);
+        traceDriverLocation(context);
+
     }
   }
 }
